@@ -1,0 +1,114 @@
+@import "colours";
+
+/* override the default font file locations */
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: asset-path('glyphicons-halflings-regular.eot');
+    src: asset-path('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+    asset-path('glyphicons-halflings-regular.woff') format('woff'),
+    asset-path('glyphicons-halflings-regular.ttf') format('truetype'),
+    asset-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/* remove text shadow on buttons */
+.btn-default,
+.btn-success, .btn-info,
+.btn-warning, .btn-danger {
+  box-shadow: none;
+  text-shadow: none;
+  color: $grey_txt;
+}
+
+.btn-primary {
+  box-shadow: none;
+  text-shadow: none;
+  color: #eee;
+}
+
+/* remove background image from navbar */
+.navbar {
+  background-image: none;
+}
+
+/* remove border from top navbar */
+.navbar-fixed-top {
+  border: none;
+  margin-bottom: 0;
+  li {
+    height: 52px;
+  }
+}
+
+/* remove margin and padding from navbar-nav */
+.navbar-nav {
+  margin: 0;
+  padding: 0;
+}
+
+/* remove shadows from navbar text */
+.navbar-nav > li > a {
+  text-shadow: none;
+}
+
+/* remove default colors for dropdown carets */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border: 1px solid black;
+}
+
+/* set padding for links in navbar */
+.navbar-fixed-top li > a {
+  padding: 13px 0px 7px 0px;
+  height: 50px;
+}
+
+.navbar-fixed-bottom li {
+  height: 52px;
+}
+
+/* remove hover and active style from links in navbar */
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: white;
+}
+
+/* override the container sizes */
+.container {
+	width: 320px;
+	padding: 0;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 480px) {
+  .container {
+    width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 640px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1120px;
+  }
+}
+
+/* override the column padding */
+.col-md-4 {
+  padding: 0;
+}
+
+/* override the row margin */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}

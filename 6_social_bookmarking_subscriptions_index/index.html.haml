@@ -1,0 +1,46 @@
+%h1
+  Your Tasks
+%h2
+  = @subscriptions.count
+  Tasks&nbsp;(
+  = @subscriptions.count - @complete_subscription_count
+  incomplete,
+  = @complete_subscription_count
+  complete)
+
+- if @subscriptions.count > 0
+  %table{ role:    "grid",
+          summary: "List of tasks to which the authenticated user is currently subscribed" }
+    %thead
+      %tr
+        %th{ width: "125" }
+          = sortable "created_at", "Date Added"
+        %th
+          = sortable "name"
+        %th{ width: "125" }
+          = sortable "progress"
+        %th
+    %tbody
+      -@subscriptions.each do |subscription|
+        %tr
+          %td
+            = subscription.created_at.to_formatted_s(:date)
+          %td
+            = link_to(subscription) do
+              = subscription.task.name
+          %td
+            = number_with_precision(subscription.progress*100, precision: 0)
+            \%
+          %td
+            = link_to 'Delete', subscription, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" 
+- else
+  #noSubMsg
+    %p
+      You don't have any subscriptions
+%br/
+
+- if @subscribed_to_all
+  %p
+    You have subscribed to all tasks
+-else
+  = render 'form'
